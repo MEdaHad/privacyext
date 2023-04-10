@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Advanced Privacy",
+    "version": "1.0.1",
+    "default_locale": "en",
+    "description": "The privacy extension is a web browser extension that helps users protect their online privacy by providing features such as ad-blocking, cookie management, IP masking, anti-tracking, and customization options. The user interface is designed to be intuitive and easy to use. The extension is built using React.js and can be installed on web browsers such as Chrome, Firefox, and Safari. It is designed to be fully functional and accessible, helping users safeguard their privacy while browsing the web.",
+    "author": "medhane.hadush@powercoders.org",  
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Advanced Privacy"
+    },
+    "permissions":[
+      "scripting"
+    ],
+    "host_permissions": [
+      "https://*/",
+      "http://*/"
+    ]
+  }

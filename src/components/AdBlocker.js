@@ -1,31 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-function AdBlocker() {
-  const [isEnabled, setIsEnabled] = useState(false);
+const AdBlocker = () => {
+  const [enabled, setEnabled] = useState(true);
+  const [rules, setRules] = useState([]);
+  const [whitelist, setWhitelist] = useState([]);
 
-  // Enable or disable ad blocking based on user preference
-  useEffect(() => {
-    if (isEnabled) {
-      // Enable ad blocker
-    } else {
-      // Disable ad blocker
-    }
-  }, [isEnabled]);
+  const toggleEnabled = () => {
+    setEnabled(!enabled);
+  };
+
+  const addRule = (rule) => {
+    setRules([...rules, rule]);
+  };
+
+  const removeRule = (rule) => {
+    setRules(rules.filter((r) => r !== rule));
+  };
+
+  const addWhitelist = (site) => {
+    setWhitelist([...whitelist, site]);
+  };
+
+  const removeWhitelist = (site) => {
+    setWhitelist(whitelist.filter((s) => s !== site));
+  };
+
+  const handleRuleChange = (e) => {
+    setRules(e.target.value.split('\n'));
+  };
+
+  const handleWhitelistChange = (e) => {
+    setWhitelist(e.target.value.split('\n'));
+  };
 
   return (
     <div>
-      <h2>Ad Blocker</h2>
-      <p>Enable or disable ad blocking on this website.</p>
+      <h2>AdBlocker</h2>
       <label>
-        <input
-          type="checkbox"
-          checked={isEnabled}
-          onChange={(e) => setIsEnabled(e.target.checked)}
+        <input type="checkbox" checked={enabled} onChange={toggleEnabled} />
+        Enable ad-blocking
+      </label>
+      <br />
+      <label>
+        Custom rules:
+        <textarea value={rules.join('\n')} onChange={handleRuleChange} />
+      </label>
+      <br />
+      <label>
+        Whitelist:
+        <textarea
+          value={whitelist.join('\n')}
+          onChange={handleWhitelistChange}
         />
-        Enable ad blocker
       </label>
     </div>
   );
-}
+};
 
 export default AdBlocker;
