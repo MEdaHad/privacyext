@@ -8,5 +8,12 @@
   "action": {
       "default_popup": "index.html",
       "default_title": "Advanced Privacy"
-  }
+  },
+  "permissions":[
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*/",
+    "http://*/"
+  ]
 }
