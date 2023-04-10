@@ -48,4 +48,4 @@ Contributions to the project are welcome. To contribute, please follow these ste
 
 # License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](License.txt) file for details.
